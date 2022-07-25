@@ -1,0 +1,71 @@
+<WelcomeScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            size_hint: (1, 3)
+            id: "title"
+            text: "Quiz App"
+        Button:
+            text: "Start"
+            on_press: app.controller.on_start()
+
+<QuizScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            size_hint: (1, 2)
+            id: "quiz_text"
+            text: root.text
+        BoxLayout:
+            size_hint: (1, 1)
+            orientation: "horizontal"
+            Button:
+                id: 1
+                text: root.selection[0]
+                on_press: app.controller.on_select(1)
+            Button:
+                id: 2
+                text: root.selection[1]
+                on_press: app.controller.on_select(2)
+            Button:
+                id: 3
+                text: root.selection[2]
+                on_press: app.controller.on_select(3)
+            Button:
+                id: 4
+                text: root.selection[3]
+                on_press: app.controller.on_select(4)
+
+<AnswerScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            size_hint: (1, 1)
+            id: "isCorrect"
+            text: root.judge
+        Label:
+            size_hint: (1, 3)
+            id: "answer_text"
+            text: root.text
+        Button:
+            size_hint: (1, 1)
+            text: "Next"
+            on_press: app.controller.on_next()
+
+<ResultScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            size_hint: (1, 3)
+            id: "result_text"
+            text: root.text
+        Button:
+            size_hint: (1, 1)
+            id: "go_top"
+            text: "はじめに戻る"
+            on_press: app.controller.on_restart()
+        Button:
+            size_hint: (1, 1)
+            id: "exit"
+            text: "Exit"
+            on_press: app.stop()
