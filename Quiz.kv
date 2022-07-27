@@ -3,11 +3,9 @@
     padding: [5, 5, 5, 5]
 
 <Label>:
-    markup: True
     color: 0,0,0,1
 
 <Button>:
-    markup: True
     color: 1,1,1,1
     margin: ["10%", "10%", "10%", "10%"]
 
@@ -20,19 +18,20 @@
         Color:
             rgba: root.color
         Line:
-            width: 1
+            width: 2
             rectangle: (self.x, self.y, self.width, self.height)
 
 <WelcomeScreen>:
     BoxLayout:
         orientation: "vertical"
+        padding: [20, 20, 20, 20]
         Label:
             size_hint: (1, 3)
-            id: "title"
-            text: "Quiz App"
+            font_size: 100
+            text: "プログラミングクイズ"
         MButton:
             text: "Start"
-            font_size: 30
+            font_size: 100
             on_press: app.controller.on_start()
 
 <QuizScreen>:
@@ -40,29 +39,26 @@
         orientation: "vertical"
         Label:
             size_hint: (1, 2)
-            id: "quiz_text"
             text: root.text
         BoxLayout:
             size_hint: (1, 1)
             orientation: "vertical"
             BoxLayout:
                 orientation: "horizontal"
+                padding: [0,0,0,0]
                 Button:
-                    id: 1
                     text: root.selection[0]
                     on_press: app.controller.on_select(1)
                 Button:
-                    id: 2
                     text: root.selection[1]
                     on_press: app.controller.on_select(2)
             BoxLayout:
                 orientation: "horizontal"
+                padding: [0,0,0,0]
                 Button:
-                    id: 3
                     text: root.selection[2]
                     on_press: app.controller.on_select(3)
                 Button:
-                    id: 4
                     text: root.selection[3]
                     on_press: app.controller.on_select(4)
 
@@ -71,11 +67,9 @@
         orientation: "vertical"
         Label:
             size_hint: (1, 1)
-            id: "isCorrect"
             text: root.judge
         Label:
             size_hint: (1, 3)
-            id: "answer_text"
             text: root.text
         Button:
             size_hint: (1, 1)
@@ -85,17 +79,19 @@
 <ResultScreen>:
     BoxLayout:
         orientation: "vertical"
+        spacing: 10
+        padding: [20, 20, 20, 20]
         Label:
             size_hint: (1, 3)
-            id: "result_text"
             text: root.text
-        Button:
+        MButton:
             size_hint: (1, 1)
-            id: "go_top"
+            font_size: 80
             text: "はじめに戻る"
             on_press: app.controller.on_restart()
-        Button:
+        MButton:
             size_hint: (1, 1)
-            id: "exit"
+            font_size: 80
+            color: "red"
             text: "Exit"
             on_press: app.stop()
