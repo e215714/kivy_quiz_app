@@ -10,6 +10,7 @@ from model import Model
 from view_controller import View, Controller
 
 Window.size = (600, 400)
+Window.clearcolor = (1, 1, 1, 1)
 
 class WelcomeScreen(Screen):
     pass
