@@ -3,11 +3,14 @@ from kivy.app import App
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
 from kivy.properties import StringProperty, ListProperty
-import japanize_kivy
+
+from kivy.core.text import LabelBase, DEFAULT_FONT
+LabelBase.register(DEFAULT_FONT, './fonts/GenJyuuGothic-Regular.ttf')
 
 
 from model import Model
-from view_controller import View, Controller
+from view import View
+from controller import Controller
 
 Window.size = (600, 400)
 Window.clearcolor = (1, 1, 1, 1)
